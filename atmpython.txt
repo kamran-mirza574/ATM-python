@@ -1,0 +1,69 @@
+def createn(account):
+
+    v = int(input("Enter your preferred account number"))
+    vs = int(input("Enter your preffered PIN (numbers only)"))
+    ss = int(input("Enter initial deposited amount for the account"))
+    alst.update(v,vs)
+    blst.update(v,ss)
+
+def removen(account):
+    s =int(input("Enter account number"))
+    sv = int(input("Enter PIN"))
+    if s in alst:
+        if sv in mykeys:
+           del alst[s]
+
+
+
+print("Welcome to the ATM.")
+print("1. Withdraw money")
+print("2.Deposit money")
+print("3. Check balance")
+print("4.Create new account")
+print("5. Remove account")
+print("6. Exit")
+
+choice = input("Enter choice (1-6)")
+
+if choice == "1":
+        s =int(input("Enter account number"))
+        sv = int(input("Enter PIN"))
+        if s in alst:
+            if sv==alst.get(s):
+                vs = int(input("Enter amount to withdraw:"))
+                blst[s] -= vs
+                print("Amount has been withdrawn")
+
+
+elif choice == "2":
+         s =int(input("Enter account number"))
+         sv = int(input("Enter PIN"))
+         if s in alst.keys():
+            if sv==alst.get(s):
+                vs = int(input("Enter amount to deposit:"))
+                blst[s] += vs
+                print("Amount has been deposited")
+
+
+elif choice == "3":
+        s =int(input("Enter account number"))
+        sv = int(input("Enter PIN"))
+        if s in alst:
+            if sv==alst.get(s):
+                print(f"Current balance: ", blst.get(s))
+
+elif choice == "4":
+        account = " "
+        createn(account)
+        print("Account has succesfully been added to the system")
+
+elif choice == "5":
+        account = " "
+        removen(account)
+
+elif choice == "6":
+     print("Okay, thank you for using the atm")
+
+
+else:
+    print("Invalid choice")
